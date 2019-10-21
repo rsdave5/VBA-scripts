@@ -1,0 +1,13 @@
+Sub CreateDirs()
+Dim R As Range
+    Dim RootFolder As String
+    RootFolder = "\\wtfile04p\XMPie Assets\XMPie\Beam_Global_116"
+    For Each R In Range("a1:a10")
+        If Len(R.Text) > 0 Then
+            On Error Resume Next
+            MkDir RootFolder & "\" & R.Text
+            MkDir RootFolder & "\" & R.Text & "\Excludes"
+            On Error GoTo 0
+        End If
+    Next R
+End Sub
